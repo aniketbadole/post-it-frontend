@@ -12,7 +12,6 @@ const Login = () => {
     try {
       const userData = { email, password };
       const response = await apiService.login(userData);
-      console.log("Login success:", response.data);
       const token = response.data.token;
 
       localStorage.setItem("token", token);
