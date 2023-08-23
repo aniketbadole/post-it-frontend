@@ -8,10 +8,19 @@ const instance = axios.create({
   },
 });
 
+// Axios request interceptor for handling headers
+instance.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
 const apiService = {
   login: (userData) => instance.post("/auth/login", userData),
   register: (userData) => instance.post("/auth/register", userData),
-  // Add more functions for other API endpoints
+  postTweet: (tweetData) => instance.post("/tweets/tweets", tweetData),
 };
 
 export default apiService;

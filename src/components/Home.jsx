@@ -1,5 +1,7 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
+import TweetForm from "./TweetForm";
 import { useState, useEffect } from "react";
 
 const Home = () => {
@@ -26,11 +28,24 @@ const Home = () => {
     fetchData();
   }, []);
 
+  const condition = localStorage.getItem("token");
+  const history = useNavigate();
+
   return (
     <div>
       <NavBar />
-      <h1>Home</h1>
-      <p>{JSON.stringify(responseData)}</p>
+
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+        <div className="h-32 rounded-lg bg-gray-100">
+          <h1>Home</h1>
+        </div>
+        <div className="h-32 rounded-lg bg-gray-100 lg:col-span-2 break-all">
+          <p>{localStorage.getItem("token")}</p>
+          {condition ? <p>present</p> : history("/login")}
+          <p>{JSON.stringify(responseData)}</p>
+          <TweetForm />
+        </div>
+      </div>
     </div>
   );
 };
