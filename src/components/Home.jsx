@@ -1,10 +1,9 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import NavBar from "./NavBar";
+import Header from "./Common/Header";
 import TweetForm from "./TweetForm";
 import { useState, useEffect } from "react";
-// import UserCard from "./User/UserCard";
-import UserList from "./User/UserList";
+import SideBar from "./Common/SideBar";
 
 const Home = () => {
   const [responseData, setResponseData] = useState(null);
@@ -37,21 +36,21 @@ const Home = () => {
 
   return (
     <div>
-      <NavBar />
-
-      <div className="grid grid-cols-1 gap-2 lg:grid-cols-3 lg:gap-8">
-        <div className="h-32 rounded-lg bg-gray-100 break-all">
-          <h1>Home</h1>
+      <Header />
+      <div className="grid grid-rows-3 grid-flow-col gap-4">
+        <div className="row-span-3 break-all">
           {/* <p>{userData}</p>
           <p>{user._id}</p> */}
-          {/* <UserCard /> */}
-          <UserList />
+          <SideBar />
         </div>
-        <div className="h-32 rounded-lg bg-gray-100 lg:col-span-2 break-all">
-          <p>{localStorage.getItem("token")}</p>
-          {condition ? <p>present</p> : history("/login")}
+        <div className="col-span-2 break-all">
           <TweetForm />
         </div>
+        <div className="row-span-2 col-span-2 break-all">
+          {condition ? <p>present</p> : history("/login")}
+          <p>{localStorage.getItem("token")}</p>
+        </div>
+        <div className="row-span-3"></div>
       </div>
     </div>
   );

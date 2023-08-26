@@ -22,8 +22,8 @@ const apiService = {
   register: (userData) => instance.post("/auth/register", userData),
   postTweet: (tweetData) => instance.post("/tweets/tweets", tweetData),
   getAllUsers: () => instance.get("/users/users"),
-  // getUserDetailsByUsername: (username) =>
-  //   instance.get(`/users/users/${username}`),
+  getUserDetailsByUsername: (username) =>
+    instance.get(`/users/users/${username}`),
 };
 
 export default apiService;
