@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-const UserProfile = ({ match }) => {
+const UserProfile = () => {
   const { username } = useParams();
   return (
     <div>

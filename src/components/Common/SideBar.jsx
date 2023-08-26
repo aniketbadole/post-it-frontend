@@ -27,8 +27,10 @@ const SideBar = () => {
   };
 
   useEffect(() => {
-    fetchCurrentUser();
-  }, []);
+    if (!userData) {
+      fetchCurrentUser();
+    }
+  }, [userData]);
 
   if (!userData) {
     return <p>Loading user data...</p>;

@@ -12,7 +12,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/users/users/aniket",
+          "http://localhost:3000/users/users/johndoe",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
