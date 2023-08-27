@@ -5,6 +5,7 @@ import apiService from "../services/apiService";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const history = useNavigate();
 
   const handleLogin = async (e) => {
@@ -19,29 +20,25 @@ const Login = () => {
       // Redirect to the user's homepage after successful login
       history("/home");
     } catch (error) {
-      console.error("Login error:", error);
-      // Handle login error, display error message, etc.
+      if (error.response && error.response.status === 401) {
+        setErrorMessage("Incorrect username or password");
+      } else {
+        setErrorMessage("An error occurred. Please try again later.");
+      }
     }
   };
 
   return (
-    // <div>
-    //   <input
-    //     type="email"
-    //     value={email}
-    //     onChange={(e) => setEmail(e.target.value)}
-    //     placeholder="Email"
-    //   />
-    //   <input
-    //     type="password"
-    //     value={password}
-    //     onChange={(e) => setPassword(e.target.value)}
-    //     placeholder="Password"
-    //   />
-    //   <button onClick={handleLogin}>Login</button>
-    // </div>
-
     <section className="bg-white dark:bg-gray-900">
+      {errorMessage && (
+        <div
+          className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4"
+          role="alert"
+        >
+          <p className="font-bold">Something went wrong!</p>
+          <p>{errorMessage}</p>
+        </div>
+      )}
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
         <aside className="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
           <img

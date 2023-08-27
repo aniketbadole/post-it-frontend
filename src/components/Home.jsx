@@ -37,18 +37,18 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
-        <div className="h-32 rounded-lg bg-gray-100">
+      <div className="flex gap-4">
+        <div className="w-1/5 h-32 rounded-lg bg-gray-100">
           {/* <p>{userData}</p>
           <p>{user._id}</p> */}
           <SideBar />
         </div>
-        <div className="break-all">
+        <div className="w-3/5 break-all">
           <TweetForm />
           {condition ? <p>present</p> : history("/login")}
           <p>{localStorage.getItem("token")}</p>
         </div>
-        <div className="h-32 rounded-lg bg-gray-100"></div>
+        <div className="w-1/5 h-32 rounded-lg bg-gray-100"></div>
       </div>
     </div>
   );

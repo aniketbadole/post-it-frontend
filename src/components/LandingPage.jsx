@@ -1,43 +1,51 @@
-// import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
-const LandingPage = () => (
-  // <div>
-  //   <h1>Welcome to Twitter Clone!</h1>
-  //   <p>Where microblogging happens.</p>
-  //   <Link to="/login">Login</Link> or <Link to="/register">Register</Link>
-  // </div>
+const LandingPage = () => {
+  const navigate = useNavigate();
 
-  <section className="bg-gray-900 text-white">
-    <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
-      <div className="mx-auto max-w-3xl text-center">
-        <h1 className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
-          Create. Explore. Express.
-          <span className="sm:block"> Join Now! </span>
-        </h1>
+  useEffect(() => {
+    // Check if the user is logged in
+    const isLoggedIn = !!localStorage.getItem("token");
 
-        <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
-          Post It is a new way to connect with people. Share your thoughts,
-          engage in conversations, make new connections.
-        </p>
+    if (isLoggedIn) {
+      navigate("/home"); // Redirect to the home page
+    }
+  }, [navigate]);
 
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <a
-            className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-            href="/login"
-          >
-            Login
-          </a>
+  return (
+    <section className="bg-gray-900 text-white">
+      <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
+        <div className="mx-auto max-w-3xl text-center">
+          <h1 className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
+            Create. Explore. Express.
+            <span className="sm:block"> Join Now! </span>
+          </h1>
 
-          <a
-            className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
-            href="/register"
-          >
-            Sign Up
-          </a>
+          <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
+            Post It is a new way to connect with people. Share your thoughts,
+            engage in conversations, make new connections.
+          </p>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <a
+              className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
+              href="/login"
+            >
+              Login
+            </a>
+
+            <a
+              className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
+              href="/register"
+            >
+              Sign Up
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default LandingPage;
