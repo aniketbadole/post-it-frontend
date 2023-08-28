@@ -5,13 +5,6 @@ const TweetCard = (tweets) => {
       {console.log(tweets)}
       {response.map((tweet) => (
         <div key={tweet._id} className="tweet">
-          <b>@{tweet.author.username}</b>
-          <p>{tweet.content}</p>
-          <p>Replies {tweet.mentions.length}</p>
-          <p>Reposts {tweet.retweets.length}</p>
-          <p>Likes {tweet.likes.length}</p>
-          {/* ... other tweet details */}
-
           <article className="rounded-xl border-2 border-gray-100 bg-white">
             <div className="flex items-start gap-4 p-4 sm:p-6 lg:p-8">
               <a href="#" className="block shrink-0">
