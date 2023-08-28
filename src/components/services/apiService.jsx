@@ -24,6 +24,7 @@ const apiService = {
   getAllUsers: () => instance.get("/users/users"),
   getUserDetailsByUsername: (username) =>
     instance.get(`/users/users/${username}`),
+  getTimeline: () => instance.get("/timeline/home"),
 };
 
 export default apiService;
