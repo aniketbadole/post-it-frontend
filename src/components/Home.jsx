@@ -17,8 +17,7 @@ const Home = () => {
         </div>
         <div className="w-3/5 mt-4 break-all">
           <TweetForm />
-          {condition ? <p>present</p> : history("/login")}
-          <p>{localStorage.getItem("token")}</p>
+          {condition ? <div className="mb-4"></div> : history("/login")}
           <GetTimeline />
         </div>
         <div className="w-1/5 rounded-lg bg-gray-100"></div>

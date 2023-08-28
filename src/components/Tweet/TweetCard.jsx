@@ -18,7 +18,7 @@ const TweetCard = (tweets) => {
               <div>
                 <h3 className="font-medium sm:text-lg">
                   <a href="#" className="hover:underline">
-                    {tweet.author.username}
+                    {tweet.author.name}
                   </a>
                 </h3>
 
@@ -96,14 +96,12 @@ const TweetCard = (tweets) => {
                     <p className="text-xs">{tweet.likes.length} likes</p>
                   </div>
 
+                  <span className="hidden sm:block" aria-hidden="true">
+                    &middot;
+                  </span>
+
                   <p className="hidden sm:block sm:text-xs sm:text-gray-500">
-                    Posted by
-                    <a
-                      href="#"
-                      className="font-medium underline hover:text-gray-700"
-                    >
-                      John
-                    </a>
+                    Posted {formatTimestamp(tweet.createdAt)}
                   </p>
                 </div>
               </div>
@@ -113,6 +111,29 @@ const TweetCard = (tweets) => {
       ))}
     </div>
   );
+};
+
+const formatTimestamp = (timestamp) => {
+  const now = new Date();
+  const createdAt = new Date(timestamp);
+  const timeDiff = now - createdAt;
+
+  if (timeDiff < 3600000) {
+    return `${Math.floor(timeDiff / 60000)} minutes ago`;
+  } else if (timeDiff < 86400000) {
+    return `${Math.floor(timeDiff / 3600000)} hours ago`;
+  } else if (createdAt.getFullYear() === now.getFullYear()) {
+    return createdAt.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+    });
+  } else {
+    return createdAt.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  }
 };
 
 export default TweetCard;

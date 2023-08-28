@@ -40,7 +40,7 @@ const SideBar = () => {
   const { username, name } = userData;
 
   return (
-    <div className="flex h-screen flex-col justify-between border-e bg-white">
+    <div className="top-0 flex h-screen flex-col justify-between border-e bg-white">
       <div className="px-4 py-6">
         {console.log(name)}
         <ul className="mt-6 space-y-1">
@@ -170,7 +170,7 @@ const SideBar = () => {
         </ul>
       </div>
 
-      <div className="sticky inset-x-0 bottom-0 border-t border-gray-100">
+      <div className="sticky inset-x-0 bottom-0 border-gray-100">
         <Link
           to={`/user/${username}`}
           className="flex items-center gap-2 bg-white p-4 hover:bg-gray-50"
