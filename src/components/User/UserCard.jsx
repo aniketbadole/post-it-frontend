@@ -1,12 +1,5 @@
 const UserCard = ({ _id, username, name, profilePicture }) => {
   return (
-    // <div classNameName="user-card">
-    //   <p>Name: {name}</p>
-    //   <p>Username: {username}</p>
-    //   <p>ID: {_id}</p>
-    //   <p>Image: {profilePicture}</p>
-    // </div>
-
     <a
       href="#"
       className="relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-6 lg:p-8"
