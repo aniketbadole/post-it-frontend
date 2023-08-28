@@ -1,6 +1,7 @@
 import jwtDecode from "jwt-decode";
 import apiService from "../services/apiService";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   const [userData, setUserData] = useState(null);
@@ -45,7 +46,7 @@ const SideBar = () => {
         <ul className="mt-6 space-y-1">
           <li>
             <a
-              href=""
+              href="/home"
               className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
             >
               Home
@@ -170,8 +171,8 @@ const SideBar = () => {
       </div>
 
       <div className="sticky inset-x-0 bottom-0 border-t border-gray-100">
-        <a
-          href="#"
+        <Link
+          to={`/user/${username}`}
           className="flex items-center gap-2 bg-white p-4 hover:bg-gray-50"
         >
           <img
@@ -187,7 +188,7 @@ const SideBar = () => {
               <span> @{username} </span>
             </p>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );
