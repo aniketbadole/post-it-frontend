@@ -1,9 +1,26 @@
-const TweetCard = (tweets) => {
-  const response = tweets.tweets;
+import jwtDecode from "jwt-decode";
+import apiService from "../services/apiService";
+import PropTypes from "prop-types";
+
+const token = localStorage.getItem("token");
+const decodedToken = jwtDecode(token);
+const userId = decodedToken.user.id;
+
+const TweetCard = ({ tweets }) => {
+  const handleDelete = (tweetId) => {
+    apiService
+      .deleteTweet(tweetId)
+      .then(() => {
+        console.log("Tweet deleted successfully");
+      })
+      .catch((error) => {
+        console.error("Error deleting tweet", error);
+      });
+  };
+
   return (
     <div>
-      {console.log(tweets)}
-      {response.map((tweet) => (
+      {tweets.map((tweet) => (
         <div key={tweet._id} className="tweet">
           <article className="rounded-xl border-2 border-gray-100 bg-white">
             <div className="flex items-start gap-4 p-4 sm:p-6 lg:p-8">
@@ -103,6 +120,19 @@ const TweetCard = (tweets) => {
                   <p className="hidden sm:block sm:text-xs sm:text-gray-500">
                     Posted {formatTimestamp(tweet.createdAt)}
                   </p>
+                  <span className="hidden sm:block" aria-hidden="true">
+                    &middot;
+                  </span>
+                  <div className="flex items-center gap-1 text-gray-500">
+                    {tweet.author._id === userId && (
+                      <button
+                        className="text-xs"
+                        onClick={() => handleDelete(tweet._id)}
+                      >
+                        Delete
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -134,6 +164,10 @@ const formatTimestamp = (timestamp) => {
       day: "numeric",
     });
   }
+};
+
+TweetCard.propTypes = {
+  tweets: PropTypes.array,
 };
 
 export default TweetCard;

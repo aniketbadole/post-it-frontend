@@ -139,7 +139,7 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
             Welcome Back, Barry!
           </h1>
@@ -148,7 +148,7 @@ const Header = () => {
             Your website has seen a 52% increase in traffic in the last month.
             Keep it up! 🚀
           </p>
-        </div>
+        </div> */}
       </div>
     </header>
   );

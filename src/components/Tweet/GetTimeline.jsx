@@ -19,7 +19,7 @@ const GetTimeline = () => {
     fetchTweets();
 
     // Polling interval every 15 seconds
-    const intervalId = setInterval(fetchTweets, 2000);
+    const intervalId = setInterval(fetchTweets, 20000);
 
     // Clean up the interval when the component unmounts
     return () => {
