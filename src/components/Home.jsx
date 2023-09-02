@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import TweetForm from "./TweetForm";
 import SideBar from "./Common/SideBar";
 import GetTimeline from "./Tweet/GetTimeline";
-// import jwtDecode from "jwt-decode";
+import jwtDecode from "jwt-decode";
 
 const Home = () => {
   const condition = localStorage.getItem("token");
   const history = useNavigate();
-  // const decodedToken = jwtDecode(condition);
-  // const loggedInUserId = decodedToken.user.id;
-  // console.log(loggedInUserId);
+  const decodedToken = jwtDecode(condition);
+  const loggedInUserId = decodedToken.user.id;
+  console.log(loggedInUserId);
 
   return (
     <div>

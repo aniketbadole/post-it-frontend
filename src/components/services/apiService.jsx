@@ -26,6 +26,7 @@ const apiService = {
     instance.get(`/users/users/${username}`),
   getTimeline: () => instance.get("/timeline/home"),
   deleteTweet: (tweetId) => instance.delete(`/tweets/tweets/${tweetId}`),
+  logout: () => instance.post("/auth/logout"),
 };
 
 export default apiService;

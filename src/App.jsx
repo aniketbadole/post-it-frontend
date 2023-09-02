@@ -20,7 +20,7 @@ const App = () => (
       <Route path="/user/:username" Component={UserProfile} />
     </Routes>
   </Router>
-  // </AuthProvider>
+  //</AuthProvider>
 );
 
 export default App;

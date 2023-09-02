@@ -1,9 +1,11 @@
 import jwtDecode from "jwt-decode";
 import apiService from "../services/apiService";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import ProgressBar from "./ProgressBar";
 
 const SideBar = () => {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
 
   const fetchCurrentUser = async () => {
@@ -27,6 +29,16 @@ const SideBar = () => {
     }
   };
 
+  const logoutUser = async () => {
+    try {
+      await apiService.logout();
+      localStorage.removeItem("token");
+      navigate("/");
+    } catch (error) {
+      console.error("Error logging out", error);
+    }
+  };
+
   useEffect(() => {
     if (!userData) {
       fetchCurrentUser();
@@ -34,7 +46,7 @@ const SideBar = () => {
   }, [userData]);
 
   if (!userData) {
-    return <p>Loading user data...</p>;
+    return <ProgressBar />;
   }
 
   const { username, name } = userData;
@@ -156,7 +168,8 @@ const SideBar = () => {
                 <li>
                   <form action="/logout">
                     <button
-                      type="submit"
+                      type="button"
+                      onClick={logoutUser}
                       className="w-full rounded-lg px-4 py-2 text-sm font-medium text-gray-500 [text-align:_inherit] hover:bg-gray-100 hover:text-gray-700"
                     >
                       Logout
