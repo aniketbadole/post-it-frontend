@@ -111,9 +111,11 @@ const TweetCard = ({ tweet, onDelete }) => {
                 <p className="hidden sm:block sm:text-xs sm:text-gray-500">
                   Posted {formatTimestamp(tweet.createdAt)}
                 </p>
-                <span className="hidden sm:block" aria-hidden="true">
-                  &middot;
-                </span>
+                {tweet.author._id === userId && (
+                  <span className="hidden sm:block" aria-hidden="true">
+                    &middot;
+                  </span>
+                )}
                 <div className="flex items-center gap-1 text-gray-500">
                   {tweet.author._id === userId && (
                     <button className="text-xs" onClick={handleDelete}>
