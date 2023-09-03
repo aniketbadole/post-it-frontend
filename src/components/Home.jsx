@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-// import Header from "./Common/Header";
 import TweetForm from "./TweetForm";
 import SideBar from "./Common/SideBar";
 import GetTimeline from "./Tweet/GetTimeline";
