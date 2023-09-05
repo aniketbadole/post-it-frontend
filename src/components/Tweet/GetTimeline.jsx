@@ -57,7 +57,7 @@ const GetTimeline = () => {
         <div className="fixed inset-x-0 bottom-0">
           <div className="bg-indigo-600 px-4 py-3 text-white">
             <p className="text-center text-sm font-medium">
-              Message deleted successfully!
+              Message deleted successfully.
             </p>
           </div>
         </div>

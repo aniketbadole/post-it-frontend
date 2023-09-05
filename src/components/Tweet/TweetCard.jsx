@@ -156,7 +156,7 @@ const formatTimestamp = (timestamp) => {
 };
 
 TweetCard.propTypes = {
-  tweet: PropTypes.array,
+  tweet: PropTypes.object,
   onDelete: PropTypes.func,
 };
 
