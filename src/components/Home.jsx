@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import Header from "./Common/Header";
 import TweetForm from "./TweetForm";
 import SideBar from "./Common/SideBar";
 import GetTimeline from "./Tweet/GetTimeline";
@@ -10,7 +9,6 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
       <div className="flex gap-4">
         <div className="w-1/5 rounded-lg bg-gray-100">
           <SideBar />
