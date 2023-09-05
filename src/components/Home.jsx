@@ -14,6 +14,11 @@ const Home = () => {
           <SideBar />
         </div>
         <div className="w-3/5 mt-4 break-all">
+          <div className="mt-8">
+            <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+              Home
+            </h1>
+          </div>
           <TweetForm />
           {condition ? <div className="mb-4"></div> : history("/login")}
           <GetTimeline />
