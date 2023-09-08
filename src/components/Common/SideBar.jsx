@@ -2,10 +2,9 @@ import jwtDecode from "jwt-decode";
 import apiService from "../services/apiService";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import ProgressBar from "./ProgressBar";
 
 const SideBar = () => {
-  const navigate = useNavigate();
+  const navigateTo = useNavigate();
   const [userData, setUserData] = useState(null);
 
   const fetchCurrentUser = async () => {
@@ -33,7 +32,7 @@ const SideBar = () => {
     try {
       await apiService.logout();
       localStorage.removeItem("token");
-      navigate("/");
+      navigateTo("/");
     } catch (error) {
       console.error("Error logging out", error);
     }

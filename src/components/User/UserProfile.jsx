@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import apiService from "../services/apiService";
 import SideBar from "../Common/SideBar";
-// import Header from "../Common/Header";
 import UserProfileContent from "./UserProfileContent";
 import BreadCrumb from "./BreadCrumb";
 
@@ -29,7 +28,6 @@ const UserProfile = () => {
     <div>
       {userData ? (
         <div>
-          {/* <Header /> */}
           <div className="flex gap-4">
             <div className="w-1/5 rounded-lg bg-gray-100">
               <SideBar />

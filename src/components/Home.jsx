@@ -13,7 +13,6 @@ const Home = () => {
 
   return (
     <div>
-      {/* <Header /> */}
       <div className="flex gap-4">
         <div className="w-1/5 rounded-lg bg-gray-100">
           <SideBar />
