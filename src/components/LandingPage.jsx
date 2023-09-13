@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
+console.log("in landing");
+
 const LandingPage = () => {
   const navigate = useNavigate();
 
