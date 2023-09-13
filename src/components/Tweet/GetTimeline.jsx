@@ -32,7 +32,6 @@ const GetTimeline = () => {
 
   return (
     <div className="get-timeline">
-      {console.log(tweets)}
       <TweetCard tweets={tweets} /> {/* Pass tweets to TweetCard */}
     </div>
   );

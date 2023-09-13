@@ -2,7 +2,6 @@ const TweetCard = (tweets) => {
   const response = tweets.tweets;
   return (
     <div>
-      {console.log(tweets)}
       {response.map((tweet) => (
         <div key={tweet._id} className="tweet">
           <article className="rounded-xl border-2 border-gray-100 bg-white">

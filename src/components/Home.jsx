@@ -1,12 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 import TweetForm from "./TweetForm";
 import SideBar from "./Common/SideBar";
 import GetTimeline from "./Tweet/GetTimeline";
 
-const Home = () => {
-  const condition = localStorage.getItem("token");
-  const history = useNavigate();
-
+const Home = ({ userId }) => {
   return (
     <div>
       <div className="flex gap-4">
@@ -20,13 +17,16 @@ const Home = () => {
             </h1>
           </div>
           <TweetForm />
-          {condition ? <div className="mb-4"></div> : history("/login")}
-          <GetTimeline />
+          <GetTimeline userId={userId} />
         </div>
         <div className="w-1/5 rounded-lg bg-gray-100"></div>
       </div>
     </div>
   );
+};
+
+Home.propTypes = {
+  userId: PropTypes.string,
 };
 
 export default Home;
